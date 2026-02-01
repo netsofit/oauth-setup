@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: oauth-secure-app
+  security:
+    oauth2:
+      client:
+        registration:
+          my-client:
+            client-id: ${OAUTH_CLIENT_ID}
+            client-secret: ${OAUTH_CLIENT_SECRET}
+            scope: openid,profile,email
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-name: My OAuth2 Provider
+        provider:
+          my-client:
+            issuer-uri: ${OAUTH_ISSUER_URI}

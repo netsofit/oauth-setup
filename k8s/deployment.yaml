@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oauth-secure-app
+  labels:
+    app: oauth-secure-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oauth-secure-app
+  template:
+    metadata:
+      labels:
+        app: oauth-secure-app
+    spec:
+      containers:
+        - name: oauth-secure-app
+          image: oauth-secure-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: OAUTH_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: oauth-secrets
+                  key: client-id
+            - name: OAUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: oauth-secrets
+                  key: client-secret
+            - name: OAUTH_ISSUER_URI
+              valueFrom:
+                secretKeyRef:
+                  name: oauth-secrets
+                  key: issuer-uri

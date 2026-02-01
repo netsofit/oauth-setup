@@ -1,0 +1,19 @@
+# Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+dependency-reduced-pom.xml
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Secrets (Prevent committing actual credentials)
+k8s/secrets.yaml
