@@ -19,7 +19,7 @@ spec:
           image: oauth-secure-app:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 8085
           env:
             - name: OAUTH_CLIENT_ID
               valueFrom:

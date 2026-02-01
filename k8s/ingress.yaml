@@ -21,4 +21,4 @@ spec:
               service:
                 name: oauth-secure-app
                 port:
-                  number: 80
+                  number: 8085
