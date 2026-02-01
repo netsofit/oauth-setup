@@ -14,8 +14,8 @@ public class OAuthApplication {
 		SpringApplication.run(OAuthApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String home(Principal principal) {
-		return "Hello, " + (principal != null ? principal.getName() : "Guest") + "! Welcome to the OAuth2 Secured App.";
+	@GetMapping("/user")
+	public String user(Principal principal) {
+		return "Hello, " + (principal != null ? principal.getName() : "User") + "! You are logged in.";
 	}
 }
